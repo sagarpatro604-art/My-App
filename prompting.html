@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sagar Patro — AI Prompt Engineering OS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/framer-motion@10.12.16/dist/framer-motion.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #cad5df 0%, #aebec9 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: #1f2937;
+    }
+
+    .glass {
+      background: rgba(255,255,255,0.42);
+      backdrop-filter: blur(25px);
+      border: 1px solid rgba(255,255,255,0.6);
+      box-shadow:
+        0 8px 32px rgba(15, 23, 42, 0.08),
+        inset 0 1px 0 rgba(255,255,255,0.8);
+    }
+
+    .soft-card {
+      background: rgba(255,255,255,0.5);
+      border: 1px solid rgba(255,255,255,0.7);
+      box-shadow: 0 6px 18px rgba(15,23,42,0.06);
+      transition: all 0.35s ease;
+    }
+
+    .soft-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 30px rgba(15,23,42,0.10);
+    }
+
+    .yellow-card {
+      background: linear-gradient(135deg, #ffe59d, #ffd465);
+      color: #2f2f2f;
+    }
+
+    .dark-pill {
+      background: #20242c;
+      color: white;
+    }
+
+    .nav-btn {
+      transition: all 0.3s ease;
+    }
+
+    .nav-btn:hover {
+      transform: translateX(4px);
+      background: #ffe08a;
+    }
+
+    .progress-ring {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: conic-gradient(#20242c 0deg, #20242c 230deg, #d9dde2 230deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .progress-ring-inner {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      background: #f4f7fa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+    }
+
+    .fade-up {
+      animation: fadeUp 0.7s ease;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .prompt-box {
+      background: #1e293b;
+      color: #f8fafc;
+      font-family: monospace;
+      line-height: 1.8;
+    }
+
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="max-w-7xl mx-auto p-6 lg:p-10 fade-up">
+
+    <div class="glass rounded-[40px] p-6 lg:p-8">
+
+      <div class="grid grid-cols-12 gap-6">
+
+        <!-- LEFT SIDEBAR -->
+        <div class="col-span-12 lg:col-span-3">
+
+          <div class="soft-card rounded-[30px] p-5 h-full flex flex-col justify-between">
+
+            <div>
+              <div class="flex items-center gap-3 mb-8">
+                <div class="w-10 h-10 rounded-full bg-yellow-300 flex items-center justify-center font-black">
+                  AI
+                </div>
+                <div>
+                  <h2 class="font-black text-lg">PromptOS</h2>
+                  <p class="text-xs text-gray-500">Sagar Patro System</p>
+                </div>
+              </div>
+
+              <div class="text-center mb-8">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500" class="w-28 h-28 rounded-3xl mx-auto object-cover shadow-xl" />
+                <h2 class="text-2xl font-black mt-4">Sagar Patro</h2>
+                <p class="text-sm text-gray-500">Researcher • Creator • Strategist</p>
+              </div>
+
+              <div class="space-y-3">
+                <button onclick="showSection('framework')" class="nav-btn w-full text-left px-5 py-4 rounded-2xl bg-yellow-200 font-semibold">
+                  Prompt Framework
+                </button>
+
+                <button onclick="showSection('mistakes')" class="nav-btn w-full text-left px-5 py-4 rounded-2xl bg-white/60 font-semibold">
+                  Common Mistakes
+                </button>
+
+                <button onclick="showSection('advanced')" class="nav-btn w-full text-left px-5 py-4 rounded-2xl bg-white/60 font-semibold">
+                  Advanced Systems
+                </button>
+
+                <button onclick="showSection('templates')" class="nav-btn w-full text-left px-5 py-4 rounded-2xl bg-white/60 font-semibold">
+                  Prompt Templates
+                </button>
+
+                <button onclick="showSection('elite')" class="nav-btn w-full text-left px-5 py-4 rounded-2xl bg-white/60 font-semibold">
+                  Elite Thinking
+                </button>
+              </div>
+            </div>
+
+            <div class="yellow-card rounded-[25px] p-5 mt-6">
+              <p class="text-sm font-semibold opacity-70 mb-2">Your Growth</p>
+              <h2 class="text-4xl font-black mb-2">82%</h2>
+              <p class="text-sm leading-relaxed">
+                Your prompting skill is already above average because you naturally think in systems and narratives.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- MAIN CONTENT -->
+        <div class="col-span-12 lg:col-span-9 space-y-6">
+
+          <!-- TOP -->
+          <div class="grid lg:grid-cols-3 gap-6">
+
+            <div class="glass rounded-[30px] p-6 lg:col-span-2">
+              <div class="flex items-center justify-between mb-6">
+                <div>
+                  <p class="text-gray-500 text-sm">AI Prompt Intelligence System</p>
+                  <h1 class="text-4xl font-black leading-tight mt-2">
+                    Build Better <br/>
+                    Prompts Like a <span class="text-yellow-500">Strategist</span>
+                  </h1>
+                </div>
+
+                <div class="dark-pill px-5 py-4 rounded-3xl text-center">
+                  <div class="text-3xl font-black">29</div>
+                  <div class="text-xs opacity-70">Frameworks</div>
+                </div>
+              </div>
+
+              <div class="grid md:grid-cols-3 gap-4">
+
+                <div class="soft-card rounded-2xl p-4">
+                  <p class="text-sm text-gray-500 mb-2">Research Style</p>
+                  <h3 class="font-black text-xl">Institutional</h3>
+                </div>
+
+                <div class="soft-card rounded-2xl p-4">
+                  <p class="text-sm text-gray-500 mb-2">Content Style</p>
+                  <h3 class="font-black text-xl">Documentary</h3>
+                </div>
+
+                <div class="soft-card rounded-2xl p-4">
+                  <p class="text-sm text-gray-500 mb-2">Thinking Pattern</p>
+                  <h3 class="font-black text-xl">Systems First</h3>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="yellow-card rounded-[30px] p-6 flex flex-col justify-between">
+              <div>
+                <p class="text-sm opacity-70 mb-3">Your AI Mentor</p>
+                <h2 class="text-3xl font-black leading-tight mb-4">
+                  Prompt <br/>Architect
+                </h2>
+              </div>
+
+              <div class="flex items-center gap-4">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500" class="w-16 h-16 rounded-2xl object-cover" />
+                <div>
+                  <p class="font-bold">Strategic Intelligence</p>
+                  <p class="text-sm opacity-70">Research × Creativity × Systems</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- DASHBOARD -->
+          <div class="grid md:grid-cols-4 gap-5">
+
+            <div class="soft-card rounded-[28px] p-5">
+              <div class="flex justify-between items-start mb-6">
+                <div>
+                  <p class="text-sm text-gray-500">Prompt Clarity</p>
+                  <h3 class="text-3xl font-black">91%</h3>
+                </div>
+                <div class="w-12 h-12 rounded-2xl bg-green-100 flex items-center justify-center text-xl">
+                  ✓
+                </div>
+              </div>
+              <div class="w-full bg-gray-200 h-2 rounded-full overflow-hidden">
+                <div class="bg-black h-full w-[91%]"></div>
+              </div>
+            </div>
+
+            <div class="soft-card rounded-[28px] p-5">
+              <div class="flex justify-between items-start mb-6">
+                <div>
+                  <p class="text-sm text-gray-500">Structure</p>
+                  <h3 class="text-3xl font-black">87%</h3>
+                </div>
+                <div class="w-12 h-12 rounded-2xl bg-blue-100 flex items-center justify-center text-xl">
+                  ⚡
+                </div>
+              </div>
+              <div class="w-full bg-gray-200 h-2 rounded-full overflow-hidden">
+                <div class="bg-black h-full w-[87%]"></div>
+              </div>
+            </div>
+
+            <div class="soft-card rounded-[28px] p-5">
+              <div class="flex justify-between items-start mb-6">
+                <div>
+                  <p class="text-sm text-gray-500">Depth</p>
+                  <h3 class="text-3xl font-black">95%</h3>
+                </div>
+                <div class="w-12 h-12 rounded-2xl bg-yellow-100 flex items-center justify-center text-xl">
+                  🧠
+                </div>
+              </div>
+              <div class="w-full bg-gray-200 h-2 rounded-full overflow-hidden">
+                <div class="bg-black h-full w-[95%]"></div>
+              </div>
+            </div>
+
+            <div class="soft-card rounded-[28px] p-5 flex items-center justify-center flex-col">
+              <div class="progress-ring mb-4">
+                <div class="progress-ring-inner">
+                  64%
+                </div>
+              </div>
+              <p class="font-semibold">Execution Quality</p>
+            </div>
+
+          </div>
+
+          <!-- CONTENT SECTIONS -->
+          <div id="contentArea" class="glass rounded-[35px] p-8 min-h-[520px] transition-all duration-500">
+
+            <div id="framework" class="section-content">
+              <div class="flex items-center justify-between mb-8">
+                <div>
+                  <p class="text-gray-500">Core Intelligence System</p>
+                  <h2 class="text-5xl font-black mt-2">7-Layer Prompt Framework</h2>
+                </div>
+                <button onclick="copyPrompt()" class="yellow-card px-6 py-4 rounded-2xl font-bold hover:scale-105 transition">
+                  Copy Master Prompt
+                </button>
+              </div>
+
+              <div class="grid lg:grid-cols-2 gap-6 mb-8">
+
+                <div class="soft-card rounded-[28px] p-6">
+                  <p class="text-sm text-gray-500 mb-2">01</p>
+                  <h3 class="text-3xl font-black mb-4">Role</h3>
+                  <p class="text-gray-600 leading-relaxed mb-5">
+                    Define who the AI should become before asking anything.
+                  </p>
+                  <div class="prompt-box rounded-2xl p-4 text-sm">
+Act as a senior equity research analyst at Goldman Sachs.
+                  </div>
+                </div>
+
+                <div class="soft-card rounded-[28px] p-6">
+                  <p class="text-sm text-gray-500 mb-2">02</p>
+                  <h3 class="text-3xl font-black mb-4">Objective</h3>
+                  <p class="text-gray-600 leading-relaxed mb-5">
+                    Elite prompts define exact outcomes.
+                  </p>
+                  <div class="prompt-box rounded-2xl p-4 text-sm">
+Create a deep research report evaluating long-term compounding potential.
+                  </div>
+                </div>
+
+                <div class="soft-card rounded-[28px] p-6">
+                  <p class="text-sm text-gray-500 mb-2">03</p>
+                  <h3 class="text-3xl font-black mb-4">Context</h3>
+                  <p class="text-gray-600 leading-relaxed mb-5">
+                    AI performs better when it understands audience and environment.
+                  </p>
+                  <div class="prompt-box rounded-2xl p-4 text-sm">
+Audience: Beginner to intermediate Indian retail investors.
+                  </div>
+                </div>
+
+                <div class="soft-card rounded-[28px] p-6">
+                  <p class="text-sm text-gray-500 mb-2">04</p>
+                  <h3 class="text-3xl font-black mb-4">Constraints</h3>
+                  <p class="text-gray-600 leading-relaxed mb-5">
+                    Constraints create quality.
+                  </p>
+                  <div class="prompt-box rounded-2xl p-4 text-sm">
+Avoid generic advice.
+Use real Indian business examples.
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="yellow-card rounded-[30px] p-7">
+                <p class="text-sm opacity-70 mb-3">MASTER INSIGHT</p>
+                <h2 class="text-4xl font-black mb-4">
+                  Weak prompts ask questions.
+                  <br/>
+                  Strong prompts design thinking systems.
+                </h2>
+                <p class="max-w-4xl text-lg leading-relaxed">
+                  Your natural strength is deep thinking. Your next level comes from turning that depth into structured intelligence.
+                </p>
+              </div>
+            </div>
+
+            <div id="mistakes" class="section-content hidden">
+              <h2 class="text-5xl font-black mb-8">Mistakes You Commonly Make</h2>
+
+              <div class="space-y-5">
+
+                <div class="soft-card rounded-[28px] p-6 flex gap-5 items-start">
+                  <div class="w-14 h-14 rounded-2xl bg-red-100 flex items-center justify-center text-2xl">
+                    ❌
+                  </div>
+                  <div>
+                    <h3 class="text-2xl font-black mb-2">Too Broad</h3>
+                    <p class="text-gray-600 text-lg leading-relaxed">
+                      You sometimes ask for everything at once — research, psychology, strategy, storytelling, valuation, and execution.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="soft-card rounded-[28px] p-6 flex gap-5 items-start">
+                  <div class="w-14 h-14 rounded-2xl bg-red-100 flex items-center justify-center text-2xl">
+                    ❌
+                  </div>
+                  <div>
+                    <h3 class="text-2xl font-black mb-2">No Output Structure</h3>
+                    <p class="text-gray-600 text-lg leading-relaxed">
+                      AI becomes dramatically smarter when you define sections, frameworks, and formatting.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="soft-card rounded-[28px] p-6 flex gap-5 items-start">
+                  <div class="w-14 h-14 rounded-2xl bg-red-100 flex items-center justify-center text-2xl">
+                    ❌
+                  </div>
+                  <div>
+                    <h3 class="text-2xl font-black mb-2">Not Layering Prompts</h3>
+                    <p class="text-gray-600 text-lg leading-relaxed">
+                      Elite prompt engineers build intelligence in stages instead of asking for the final output immediately.
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div id="advanced" class="section-content hidden">
+              <h2 class="text-5xl font-black mb-8">Advanced Prompt Systems</h2>
+
+              <div class="grid lg:grid-cols-2 gap-6">
+
+                <div class="soft-card rounded-[30px] p-6">
+                  <h3 class="text-3xl font-black mb-4">Multi-Agent Thinking</h3>
+                  <div class="prompt-box rounded-2xl p-5 text-sm">
+Act as:
+- a hedge fund analyst
+- a forensic accountant
+- a consumer psychologist
+- a documentary storyteller
+
+Debate this business.
+                  </div>
+                </div>
+
+                <div class="soft-card rounded-[30px] p-6">
+                  <h3 class="text-3xl font-black mb-4">Adversarial Prompting</h3>
+                  <div class="prompt-box rounded-2xl p-5 text-sm">
+Now challenge your own thesis.
+What assumptions fail?
+What would a short seller say?
+                  </div>
+                </div>
+
+                <div class="soft-card rounded-[30px] p-6">
+                  <h3 class="text-3xl font-black mb-4">Documentary Storytelling</h3>
+                  <div class="prompt-box rounded-2xl p-5 text-sm">
+Write this like a Netflix business documentary.
+Open with emotional tension.
+                  </div>
+                </div>
+
+                <div class="soft-card rounded-[30px] p-6">
+                  <h3 class="text-3xl font-black mb-4">Chain of Depth</h3>
+                  <div class="prompt-box rounded-2xl p-5 text-sm">
+Start beginner.
+Then intermediate.
+Then institutional level.
+Then contrarian.
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div id="templates" class="section-content hidden">
+              <h2 class="text-5xl font-black mb-8">Your Best Prompt Templates</h2>
+
+              <div class="overflow-x-auto scrollbar-hide">
+                <table class="w-full">
+                  <thead>
+                    <tr class="text-left border-b border-gray-300">
+                      <th class="py-4 text-lg">Use Case</th>
+                      <th class="py-4 text-lg">Best Style</th>
+                      <th class="py-4 text-lg">What To Add</th>
+                    </tr>
+                  </thead>
+
+                  <tbody class="text-gray-700">
+                    <tr class="border-b border-gray-200">
+                      <td class="py-5 font-bold">Equity Research</td>
+                      <td>Institutional Analysis</td>
+                      <td>KPIs, valuation, concall insights</td>
+                    </tr>
+
+                    <tr class="border-b border-gray-200">
+                      <td class="py-5 font-bold">YouTube Scripts</td>
+                      <td>Documentary Style</td>
+                      <td>Hooks, psychology, emotional contrast</td>
+                    </tr>
+
+                    <tr class="border-b border-gray-200">
+                      <td class="py-5 font-bold">LinkedIn Posts</td>
+                      <td>Raw Observation Style</td>
+                      <td>Social shifts + economic insight</td>
+                    </tr>
+
+                    <tr>
+                      <td class="py-5 font-bold">Business Ideas</td>
+                      <td>Strategic Thinking</td>
+                      <td>Moat, unit economics, scalability</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div id="elite" class="section-content hidden">
+              <h2 class="text-5xl font-black mb-8">How Elite Prompt Engineers Think</h2>
+
+              <div class="grid md:grid-cols-2 gap-6">
+
+                <div class="yellow-card rounded-[30px] p-6">
+                  <h3 class="text-3xl font-black mb-4">Systems Over Questions</h3>
+                  <p class="text-lg leading-relaxed">
+                    Average users ask questions.
+                    Elite users build frameworks that repeatedly generate quality intelligence.
+                  </p>
+                </div>
+
+                <div class="soft-card rounded-[30px] p-6">
+                  <h3 class="text-3xl font-black mb-4">Structure = Intelligence</h3>
+                  <p class="text-lg text-gray-600 leading-relaxed">
+                    Most people underestimate how much structure changes AI quality.
+                  </p>
+                </div>
+
+                <div class="soft-card rounded-[30px] p-6">
+                  <h3 class="text-3xl font-black mb-4">Iteration Wins</h3>
+                  <p class="text-lg text-gray-600 leading-relaxed">
+                    Elite prompts are rarely written once.
+                    They evolve through testing.
+                  </p>
+                </div>
+
+                <div class="yellow-card rounded-[30px] p-6">
+                  <h3 class="text-3xl font-black mb-4">AI as Operating System</h3>
+                  <p class="text-lg leading-relaxed">
+                    Your future advantage comes from building AI workflows for research, content, and decision-making.
+                  </p>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll('.section-content');
+      sections.forEach(section => {
+        section.classList.add('hidden');
+      });
+
+      document.getElementById(sectionId).classList.remove('hidden');
+    }
+
+    function copyPrompt() {
+      const text = `Act as a senior institutional analyst and documentary storyteller.\n\nBreak the topic into first principles.\nUse Indian market examples.\nAvoid generic advice.\nInclude frameworks, psychology, business incentives, risks, and second-order effects.\nUse structured sections and deep analysis.`;
+
+      navigator.clipboard.writeText(text);
+
+      alert('Master Prompt Copied Successfully 🚀');
+    }
+  </script>
+
+</body>
+</html>
