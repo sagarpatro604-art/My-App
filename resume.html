@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sagar Patro | Investment Research Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background: #050816;
+      color: #ffffff;
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(0,255,200,0.12) 0%, transparent 70%);
+      top: -200px;
+      right: -200px;
+      z-index: -1;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(93,63,211,0.15) 0%, transparent 70%);
+      bottom: -200px;
+      left: -200px;
+      z-index: -1;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1400px;
+      margin: auto;
+      padding: 40px;
+    }
+
+    .resume-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(20px);
+      border-radius: 30px;
+      padding: 50px;
+      box-shadow: 0 0 60px rgba(0,255,200,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .resume-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 30px;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(0,255,200,0.5), rgba(93,63,211,0.4));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .name {
+      font-size: 64px;
+      font-weight: 700;
+      line-height: 1;
+      background: linear-gradient(90deg, #ffffff, #00ffc8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+    }
+
+    .role {
+      font-size: 22px;
+      color: #00ffc8;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+
+    .summary {
+      color: rgba(255,255,255,0.75);
+      font-size: 15px;
+      max-width: 700px;
+    }
+
+    .contact-box {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 24px;
+      padding: 24px;
+    }
+
+    .contact-item {
+      margin-bottom: 16px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .contact-item span {
+      color: #00ffc8;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 5px;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .section {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 24px;
+      padding: 26px;
+      transition: 0.3s ease;
+    }
+
+    .section:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0,255,200,0.35);
+      box-shadow: 0 10px 40px rgba(0,255,200,0.08);
+    }
+
+    .section-title {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #00ffc8;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .item {
+      margin-bottom: 20px;
+    }
+
+    .item:last-child {
+      margin-bottom: 0;
+    }
+
+    .item h3 {
+      font-size: 16px;
+      margin-bottom: 4px;
+      color: #ffffff;
+    }
+
+    .item .sub {
+      font-size: 13px;
+      color: #8f9bb3;
+      margin-bottom: 10px;
+    }
+
+    .item p,
+    .item li {
+      font-size: 14px;
+      color: rgba(255,255,255,0.78);
+    }
+
+    ul {
+      padding-left: 18px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag {
+      padding: 10px 16px;
+      background: rgba(0,255,200,0.08);
+      border: 1px solid rgba(0,255,200,0.2);
+      border-radius: 999px;
+      font-size: 13px;
+      color: #d9fffb;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .stat-card {
+      background: rgba(255,255,255,0.03);
+      border-radius: 20px;
+      padding: 18px;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .stat-number {
+      font-size: 26px;
+      color: #00ffc8;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .stat-text {
+      font-size: 13px;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .footer {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 1px;
+    }
+
+    @media(max-width: 1000px) {
+      .hero,
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .name {
+        font-size: 44px;
+      }
+
+      .container {
+        padding: 20px;
+      }
+
+      .resume-card {
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="resume-card">
+
+      <section class="hero">
+        <div>
+          <h1 class="name">K SAGAR PATRO</h1>
+          <div class="role">INVESTMENT RESEARCH • CAPITAL MARKETS • EQUITY VALUATION</div>
+          <p class="summary">
+            MBA candidate specializing in Capital Markets & Trading with hands-on experience in equity research, portfolio management, valuation modelling, financial analysis, and finance-focused content ecosystems. Passionate about decoding businesses, building investment theses, and combining analytical rigor with digital storytelling.
+          </p>
+        </div>
+
+        <div class="contact-box">
+          <div class="contact-item">
+            <span>LOCATION</span>
+            Gurugram, India
+          </div>
+
+          <div class="contact-item">
+            <span>PHONE</span>
+            +91 77899 22303
+          </div>
+
+          <div class="contact-item">
+            <span>EMAIL</span>
+            sagarpatro604@gmail.com
+          </div>
+
+          <div class="contact-item">
+            <span>LINKEDIN</span>
+            linkedin.com/in/sagarpps
+          </div>
+        </div>
+      </section>
+
+      <div class="grid">
+
+        <section class="section">
+          <h2 class="section-title">EDUCATION</h2>
+
+          <div class="item">
+            <h3>Master's Union — MBA, Capital Markets & Trading</h3>
+            <div class="sub">2024 – 2026</div>
+            <p>Specialization in Equity Valuation, Derivatives, Portfolio Management & Trading Strategies.</p>
+          </div>
+
+          <div class="item">
+            <h3>Jain University — BBA (Finance)</h3>
+            <div class="sub">2022 – 2025</div>
+            <p>Focused on Corporate Finance, Accounting, Financial Markets & Investment Analysis.</p>
+          </div>
+
+          <div class="item">
+            <h3>The Valuation School — Equity Research Certification</h3>
+            <div class="sub">2025</div>
+            <p>Financial Modelling, DCF Valuation, Comparable Analysis & Institutional Research Writing.</p>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">KEY METRICS</h2>
+
+          <div class="stats">
+            <div class="stat-card">
+              <div class="stat-number">₹10L+</div>
+              <div class="stat-text">Family Capital Managed</div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-number">13%</div>
+              <div class="stat-text">Annual Portfolio Return</div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-number">6.4K+</div>
+              <div class="stat-text">LinkedIn Followers</div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-number">400+</div>
+              <div class="stat-text">Finance Community Members</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">EXPERIENCE</h2>
+
+          <div class="item">
+            <h3>Independent Equity Research & Portfolio Management</h3>
+            <div class="sub">2023 – Present</div>
+            <ul>
+              <li>Managing ₹10L+ family capital using swing trading & fundamental research frameworks.</li>
+              <li>Built systematic trade setups using RSI, MACD & price action analysis.</li>
+              <li>Conduct deep-dive business analysis, valuation modelling & investment thesis creation.</li>
+            </ul>
+          </div>
+
+          <div class="item">
+            <h3>Taxation Intern — Surajmal Daga & Associates</h3>
+            <div class="sub">Jun 2024 – Sep 2024</div>
+            <ul>
+              <li>Audited and reviewed 10+ client accounts.</li>
+              <li>Worked on GST, TDS, reconciliation & financial compliance workflows.</li>
+            </ul>
+          </div>
+
+          <div class="item">
+            <h3>Digit Insurance — Tariff Digitization Intern</h3>
+            <div class="sub">Jun 2023 – Sep 2023</div>
+            <ul>
+              <li>Handled 10,000+ daily structured Excel entries with operational accuracy.</li>
+              <li>Supported pricing workflows and operational data systems.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">PROJECTS</h2>
+
+          <div class="item">
+            <h3>Kalyan Jewellers Equity Research Report</h3>
+            <ul>
+              <li>Built full-cycle research coverage with DCF valuation & peer benchmarking.</li>
+              <li>Analyzed revenue drivers, margin structure & management quality.</li>
+            </ul>
+          </div>
+
+          <div class="item">
+            <h3>Finance AI Automations</h3>
+            <ul>
+              <li>Built WhatsApp market wrap automation, sector scanners & stock research bots.</li>
+              <li>Created AI-powered LinkedIn post & reel script generation systems.</li>
+            </ul>
+          </div>
+
+          <div class="item">
+            <h3>Finance Content Ecosystem</h3>
+            <ul>
+              <li>Built finance audience across LinkedIn, Instagram & WhatsApp communities.</li>
+              <li>Simplified complex finance concepts through visual storytelling & market insights.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">CORE SKILLS</h2>
+
+          <div class="skills">
+            <div class="tag">Equity Research</div>
+            <div class="tag">DCF Valuation</div>
+            <div class="tag">Financial Modelling</div>
+            <div class="tag">Portfolio Management</div>
+            <div class="tag">Comparable Analysis</div>
+            <div class="tag">Technical Analysis</div>
+            <div class="tag">Industry Research</div>
+            <div class="tag">Investment Thesis</div>
+            <div class="tag">Risk Management</div>
+            <div class="tag">Bloomberg</div>
+            <div class="tag">TradingView</div>
+            <div class="tag">Excel</div>
+            <div class="tag">Claude AI</div>
+            <div class="tag">Chartink</div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">LANGUAGES & STRENGTHS</h2>
+
+          <div class="item">
+            <h3>Languages</h3>
+            <p>English • Hindi • Odia</p>
+          </div>
+
+          <div class="item">
+            <h3>Strengths</h3>
+            <ul>
+              <li>Strong understanding of Indian equities & capital markets.</li>
+              <li>Comfortable with annual reports, concalls & investor presentations.</li>
+              <li>Blend of analytical finance skills with modern digital communication.</li>
+              <li>Entrepreneurial mindset with long-term interest in wealth management & advisory.</li>
+            </ul>
+          </div>
+        </section>
+
+      </div>
+
+      <div class="footer">
+        DESIGNED FOR MODERN INVESTMENT RESEARCH & CAPITAL MARKETS ROLES
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
